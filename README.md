@@ -83,13 +83,4 @@ Data Insertion in Database
 
 
 
-# Prediction 
 
-
-1) Data Export from Db - The data inthe stored database is exported as a CSV file to be used for prediction.
-2) Data Preprocessing    
-   a) Check for null values in the columns. If present, impute the null values using the KNN imputer.
-   b) Check if any column has zero standard deviation, remove such columns as we did in training.
-3) Clustering - KMeans model created during training is loaded, and clusters for the preprocessed prediction data is predicted.
-4) Prediction - Based on the cluster number, the respective model is loaded and is used to predict the data for that cluster.
-5) Once the prediction is made for all the clusters, the predictions along with the Wafer names are saved in a CSV file at a given location and the location is returned to the client.
