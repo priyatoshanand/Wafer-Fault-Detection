@@ -5,6 +5,7 @@ This is a binary classification project where we built a pipeline to the check t
 of Wafer Sensors based on the data provided by client and predict which Wafer Sensor is faulty.
 
 
+# Architecture
 ![image](https://user-images.githubusercontent.com/56202962/184480198-b4cebdbc-66a8-4c44-8daa-b92bda1fa13e.png)
 
 
@@ -83,6 +84,23 @@ Data Insertion in Database
 1) Database Creation and connection - Create database with the given name passed. If the database is already created, open the connection to the database. 
 2) Table creation in the database - Table with name - "Good_Data", is created in the database for inserting the files in the "Good_Data_Folder" on the basis of given column names and datatype in the schema file. If table is already present then new table is not created, and new files are inserted the already present table as we want training to be done on new as well old training files.     
 3) Insertion of files in the table - All the files in the "Good_Data_Folder" are inserted in the above-created table. If any file has invalid data type in any of the columns, the file is not loaded in the table and is moved to "Bad_Data_Folder".
+
+
+# Prediction 
+
+1) Data Export from Db - The data inthe stored database is exported as a CSV file to be used for prediction.
+2) Data Preprocessing    
+   a) Check for null values in the columns. If present, impute the null values using the KNN imputer.
+   b) Check if any column has zero standard deviation, remove such columns as we did in training.
+3) Clustering - KMeans model created during training is loaded, and clusters for the preprocessed prediction data is predicted.
+4) Prediction - Based on the cluster number, the respective model is loaded and is used to predict the data for that cluster.
+5) Once the prediction is made for all the clusters, the predictions along with the Wafer names are saved in a CSV file at a given location and the location is returned to the client.
+
+# Deployment
+
+We will be deploying the model to the Heroku or any cloud platform.
+This is a workflow diagram for the prediction of using the trained model.                  
+
 
 
 
