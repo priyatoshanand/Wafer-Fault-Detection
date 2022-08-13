@@ -5,6 +5,10 @@ This is a binary classification project where we built a pipeline to the check t
 of Wafer Sensors based on the data provided by client and predict which Wafer Sensor is faulty.
 
 
+![image](https://user-images.githubusercontent.com/56202962/184480198-b4cebdbc-66a8-4c44-8daa-b92bda1fa13e.png)
+
+
+
 
 
  
